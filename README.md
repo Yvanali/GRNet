@@ -27,7 +27,8 @@ Download SUNRGBD v2 data HERE http://rgbd.cs.princeton.edu/data/ (SUNRGBD.zip, S
 
 Extract point clouds and annotations (class, v2 2D -- xmin,ymin,xmax,ymax, and 3D bounding boxes -- centroids, size, 2D heading) by running extract_split.m, extract_rgbd_data_v2.m and extract_rgbd_data_v1.m under the matlab folder.
 
-Prepare data by running 
+Prepare data by running
+
     python3 sunrgbd_data.py --gen_v1_data
 
 You can also examine and visualize the data with python sunrgbd_data.py --viz and use MeshLab to view the generated PLY files at data_viz_dump.
