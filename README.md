@@ -8,7 +8,7 @@ Install Pytorch and Tensorflow (for TensorBoard). It is required that you have a
 Compile the CUDA layers for PointNet++, which we used in the backbone network:
 
     cd pointnet2
-    python setup.py install
+    python3 setup.py install
 To see if the compilation is successful, try to run python models/votenet.py to see if a forward pass works.
 
 Install the following Python dependencies (with pip install):
@@ -38,11 +38,11 @@ NOTE: SUNRGBDtoolbox.zip should have MD5 hash 18d22e1761d36352f37232cba102f91f (
 ## Train and Test
 To train a new VoteNet model on SUN RGB-D data (depth images):
 
-    CUDA_VISIBLE_DEVICES=0 python train.py --dataset sunrgbd --log_dir log_sunrgbd
+    CUDA_VISIBLE_DEVICES=0 python3 train.py --dataset sunrgbd --log_dir log_sunrgbd
     
 To test the trained model with its checkpoint:
 
-    python eval.py --dataset sunrgbd --checkpoint_path log_sunrgbd/checkpoint.tar --dump_dir eval_sunrgbd --cluster_sampling seed_fps --use_3d_nms --use_cls_nms --per_class_proposal
+    python3 eval.py --dataset sunrgbd --checkpoint_path log_sunrgbd/checkpoint.tar --dump_dir eval_sunrgbd --cluster_sampling seed_fps --use_3d_nms --use_cls_nms --per_class_proposal
     
 Final evaluation results will be printed on screen and also written in the log_eval.txt file under the dump directory. In default we evaluate with both AP@0.25 and AP@0.5 with 3D IoU on oriented boxes. A properly trained VoteNet should have around 57 mAP@0.25 and 32 mAP@0.5.
 
